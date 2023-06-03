@@ -1,5 +1,7 @@
 1. '\n' 줄바꿈
-2.
+2. 입력 데이터가 텍스트 파일로 주어지면 파일 시스템 모듈을 사용
+let fs = require('fs');
+let input = fs.readFilesSync('/dev/stdin').toString().split('\n');
 3.
 4.
 5.
