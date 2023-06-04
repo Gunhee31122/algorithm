@@ -7,6 +7,8 @@ let input = fs.readFileSync('파일명').toString().split('\n');   <- 백준 할
 문자열로 받기 때문에 정수로 바꾸는 경우 있음
 let line = input[0].split(' '); 이것도 필요
 
+여러 줄에 걸쳐서 데이터가 들어올때는 input[0], input[1] 이 각각 데이터
+
 3.fs 모듈을 사용할 수 없을때 한 줄씩 입력받는 readline 모듈을 사용
 
 const rl = require('readline').createInterface({
