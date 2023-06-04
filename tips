@@ -2,9 +2,10 @@
 
 2. 입력 데이터가 텍스트 파일로 주어지면 파일 시스템 모듈을 사용
 let fs = require('fs');
-let input = fs.readFilesSync('파일명').toString().split('\n');
+let input = fs.readFileSync('파일명').toString().split('\n');   <- 백준 할 때는 파일명 자리에 /dev/stdin
 하면 리스트로 파일은 받아옴 ( 한 줄씩)
 문자열로 받기 때문에 정수로 바꾸는 경우 있음
+let line = input[0].split(' '); 이것도 필요
 
 3.fs 모듈을 사용할 수 없을때 한 줄씩 입력받는 readline 모듈을 사용
 
