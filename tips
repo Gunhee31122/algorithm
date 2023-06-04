@@ -4,6 +4,7 @@
 let fs = require('fs');
 let input = fs.readFilesSync('파일명').toString().split('\n');
 하면 리스트로 파일은 받아옴 ( 한 줄씩)
+문자열로 받기 때문에 정수로 바꾸는 경우 있음
 
 3.fs 모듈을 사용할 수 없을때 한 줄씩 입력받는 readline 모듈을 사용
 
