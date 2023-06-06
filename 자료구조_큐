@@ -1,0 +1,22 @@
+class Queue {
+  constructor() {
+    this.items = {};
+    this.headIndex = 0;
+    this.tailIndex = 0;
+  }
+  enqueue(item){
+    this.items[this.tailIndex] = item; // tail자리에는 값이 비어있어야함
+    this.tailIndex++
+  }
+  dequeue(){
+    const item = this.items[headIndex];
+    delete this.items[this.headIndex];
+    this.headIndex++;
+    return item ; 
+  }
+  peek() { // 다음 으로 꺼내려는 원소 스택의 top
+    return this.items[this.headIndex];
+  }
+  getLength(){
+    return this.tailIndex - this.headIndex;
+  }
