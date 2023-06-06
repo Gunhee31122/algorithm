@@ -20,3 +20,8 @@ class Queue {
   getLength(){
     return this.tailIndex - this.headIndex;
   }
+  
+딕셔너리는 키와 밸류 형태로 이루어진 자료형으로  인덱스를 써서 배열과 비슷하게 사용가능
+
+delete 객체[인덱스] 하면 특정 인덱스를 삭제할 수 있는데 이때 삭제 된부분이 사라지는게 아니라 undefined 로 남기 때문에 splice를 이용하는 것이 좀 더 깔끔할 수 있음
+단 큐를 구현할때는 어차피 맨 앞 인덱스를 옮기기 때문에 큰 문제는 아님
