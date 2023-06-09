@@ -14,6 +14,14 @@ Target 값이 중간값보다 작으면 중간값을 기준으로 좌측 반대�
 function binarySearch(arr,target,start,end){
 if(start > end) return -1 ;
 let mid = parseInt((start+end)/2);
-if(arr[mid] > target) return binarySearch(arr, target, start, mid - 1);
+if (arr[mid] === target) return mid;
+else if(arr[mid] > target) return binarySearch(arr, target, start, mid - 1);
 else return binarySearch(arr, target, mid +1 , end);
 
+
+function binarySearch(arr,target,start,end) {
+  while(start <= end){
+  let mid = parseInt((start+end)/2);
+  if (arr[mid] === target) return mid;
+  else if(arr[mid] > target) end = mid -1 ;
+  else start = mid+1
