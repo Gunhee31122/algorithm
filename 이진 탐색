@@ -1,7 +1,7 @@
 정렬된 리스트에 사용 되는 탐색 알고리즘
 
 - 리스트에서 탐색범위를 절반씩 *** 좁혀가며 특정한 값을 찾을때 사용
-속도가 빠르고 효율적 O(log n
+속도가 빠르고 효율적 O(log n)
 
 1. 포인터들을 사용 LOW , MID , HIGH
 Target 값이 중간값보다 작으면 중간값을 기준으로 좌측 반대면 우측을 탐색
@@ -25,3 +25,5 @@ function binarySearch(arr,target,start,end) {
   if (arr[mid] === target) return mid;
   else if(arr[mid] > target) end = mid -1 ;
   else start = mid+1
+
+
