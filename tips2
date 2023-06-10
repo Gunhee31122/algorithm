@@ -10,7 +10,7 @@
 34
 102 를 출력해야 한다면 answer = '2\n34\n102' 이렇게 만드는 것
 
-4. parseInt 보다 Number가 빠름
+4. parseInt 보다 Number가 빠름 (단 내림 할때는 parseInt)
 
 5. 아래 줄로 안 내리고 띄어쓰기 하려면
 문자열로 바꾸고 + " "  이거 붙이기
