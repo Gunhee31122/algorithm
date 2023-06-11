@@ -26,4 +26,33 @@ function binarySearch(arr,target,start,end) {
   else if(arr[mid] > target) end = mid -1 ;
   else start = mid+1
 
+lowerBound : 정렬된 순서를 유지하면서 배열에 값을 넣을 가장 왼쪽 인덱스 반환
+
+3 4 5 5 5 5 7 9 에 5를 넣으러면 4와 5사이에 넣는다는 의미
+
+upperBound는 반대
+
+function lowerBound(arr, target, start, end){
+	while(start < end) {
+	  let mid = parseInt((start+end)/2);
+	  if(arr[mid] >= target) end = mid; // 최대한 왼쪽으로 이동
+	  else start = mid + 1;
+  }
+  return end ;
+}
+
+*start 와 end가 같다는 것은 탐색할 범위가 1개라는 것 이때는 바로 반환
+
+upperBound는 if문 등호만 제거
+
+
+(파라메트릭 서치)
+
+최적화문제를  예 혹은 아니오 문제로 바꾸어 해결하는 방법
+특정 조건을 만족하면서 가장 알맞는 값을 빠르게 찾는 문제  (lp랑 비슷)
+
+
+우리가 찾고 싶은 것이 mid가 되도록 타겟해서 탐색
+
+단조증가(감소) - 특정 변수를 키우면 전체도 같이 변함 (저 변수를 탐색하면서 전체의 최대를 만들도록함)
 
