@@ -60,3 +60,15 @@ function countByRange(arr, leftValue, rightValue){
 
 단조증가(감소) - 특정 변수를 키우면 전체도 같이 변함 (저 변수를 탐색하면서 전체의 최대를 만들도록함)
 
+let d = [0];// LIS배열 증가하는 모양 기준임 , 원본을 유지해주지는 않고 길이만 보장
+
+for (let x of arr) {
+    if (d[d.length - 1] < x) {
+        d.push(x);
+    } else {
+        let index = lowerBound(d, x, 0, d.length); //가능한 왼쪽과 교체
+        d[index] = x;
+    }
+}
+
+
