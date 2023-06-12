@@ -41,7 +41,6 @@ function lowerBound(arr, target, start, end){
   return end ; // start와 end가 같아지면 반환
 }
 
-
 upperBound는 if문 등호만 제거 -> 타겟을 찾으면 오른쪽으로 이동함
 
 function countByRange(arr, leftValue, rightValue){
