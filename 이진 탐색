@@ -42,8 +42,13 @@ function lowerBound(arr, target, start, end){
 }
 
 
-upperBound는 if문 등호만 제거
+upperBound는 if문 등호만 제거 -> 타겟을 찾으면 오른쪽으로 이동함
 
+function countByRange(arr, leftValue, rightValue){
+    let rightIndex = upperBound(arr, rightValue,0,arr.length);
+    let leftIndex = upperBound(arr, leftValue,0,arr.length);
+    return rightIndex - leftIndex ;
+} <- 이걸로 범위까지 구함
 
 (파라메트릭 서치)
 
