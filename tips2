@@ -19,7 +19,7 @@
 
 7. const temp = input[i].split(' ').map(Number) 정수 입력 받기
 
-8.
+8. map은 결과를 return하며 원래 배열은 안 바뀌는 함수, 다시 할당해야 함
 
 9.
 
