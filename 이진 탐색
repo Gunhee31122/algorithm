@@ -26,7 +26,7 @@ function binarySearch(arr,target,start,end) {
   else if(arr[mid] > target) end = mid -1 ;
   else start = mid+1
 
-lowerBound : 정렬된 순서를 유지하면서 배열에 값을 넣을 가장 왼쪽 인덱스 반환
+lowerBound : 정렬된 순서를 유지하면서 배열에 값을 넣을 가장 왼쪽 인덱스 반환(타겟 값의 개수가 여러개 일때 사용할 수 있음)
 
 3 4 5 5 5 5 7 9 에 5를 넣으러면 4와 5사이에 넣는다는 의미
 
