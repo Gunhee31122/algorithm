@@ -35,13 +35,12 @@ upperBound는 반대
 function lowerBound(arr, target, start, end){
 	while(start < end) {
 	  let mid = parseInt((start+end)/2);
-	  if(arr[mid] >= target) end = mid; // 최대한 왼쪽으로 이동
+	  if(arr[mid] >= target) end = mid; //  타겟을 찾더라도 왼쪽으로 이동
 	  else start = mid + 1;
   }
-  return end ;
+  return end ; // start와 end가 같아지면 반환
 }
 
-*start 와 end가 같다는 것은 탐색할 범위가 1개라는 것 이때는 바로 반환
 
 upperBound는 if문 등호만 제거
 
