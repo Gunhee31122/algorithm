@@ -1,0 +1,46 @@
+(백트래킹)
+
+완전탐색(모든 경우의 수를 고려)할때 첫 번째로 생각해야 하는 개념
+트리는 그래프의 일종으로 백트래킹을 사용할때 필요한 자료구조
+
+이전의 조건들과 상충되지 않는 경우에 대해서만 재귀 함수를 호출(실제로 모든 경우를 다 구하지는 않음)
+
+백트래킹 : 다시 돌아감 -> 중간에 안 되는 경우가 나오면 아까 조건을 만족하는 부분으로 돌아가 다시 탐색
+
+if 종료 조건을 만족(마지막 노드) -> 처리
+아니면 for 자식 노드를 하나씩 확인 -> 조건을 만족하면 방문 처리 + 재귀 호출 + 방문 처리 해제
+
+
+(이차원 배열에서 두 점이 대각선에 위치하는지 확인 코드)
+ Math.abs(a-x) === Math.abs(b-y) <- 기울기 1기준
+
+
+let queens = []; // 현재 체스판에 놓인 퀸의 위치 정보들 [2,3]이 있으면 이 위치에
+// 퀸이 있다는 것
+
+function possible(x,y){
+    for(let [a,b] of queens){
+        if( a == x || b == y) { // 행이나 열이 같으면 놓을 수 없음
+            return false;
+        }
+        if( Math.abs(a-x) === Math.abs(b-y)){ //대각선 계산 코드
+            return false ;
+        }
+    }
+    return true;
+}
+
+let cnt = 0;
+function dfs(row){ // row는 0번부터 행의 개수만큼 들어감(재귀적으로)
+    if(row ===n){ // n번만큼 재귀를 돌렸으면 경우의 수 1개 완성
+        cnt += 1;
+    } 
+    for( let i = 0 ; i < n ; i++){
+        if(!possible(row,i)) continue; // 놓을 수 없으면 무시
+        queens.push([row,i]);
+        dfs(row+1);
+        queens.pop(); // 각 행에 각 열에 놓는 경우의 수를 모두 세야 하니까 pop
+    }
+}
+dfs(0);
+console.log(cnt);
