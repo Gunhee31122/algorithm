@@ -59,10 +59,7 @@ let selected = []; // 현재 순열에 포함된 원소들의 인덱스
 function dfs(arr, depth){
     if(depth === m){ // 하나의 경우의 수 완성 되면 m-1까지가 실제 원소
         let result = [];
-        for(let i of selected){
-            result.push(arr[i]);
-        }
-        for(let x of result){
+        for(let x of selected){
             answer += x + ' ';
         }
         answer += '\n';
