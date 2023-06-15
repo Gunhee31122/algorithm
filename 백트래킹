@@ -45,7 +45,7 @@ function dfs(row){ // row는 0번부터 행의 개수만큼 들어감(재귀적�
 dfs(0);
 console.log(cnt);
 
-(순열 경우의 수 구하기)
+(순열 경우의 수 구하기) - nPm
 let answer ='';
 let n = input[0].split(' ').map(Number)[0]
 let m = input[0].split(' ').map(Number)[1]
@@ -66,7 +66,7 @@ function dfs(arr, depth){
         return;
     }
     for(let i = 0 ; i < arr.length; i++){
-        if(visited[i]) continue;
+        if(visited[i]) continue;  // 중복 방지코
         selected.push(i);
         visited[i] = true;
         dfs(arr, depth+1);
