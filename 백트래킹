@@ -78,6 +78,10 @@ dfs(arr,0);
 
 console.log(answer);
 
+조합은 위 깊이에서 나온 값보다 큰 값만 탐색하면 됨
+if(temp[temp.length-1] > i ) continue;
+
+
 function factorial(n){
     if (n === 0 ) return 1;
     else {
