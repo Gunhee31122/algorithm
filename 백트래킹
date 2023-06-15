@@ -54,7 +54,7 @@ for(let i = 1 ; i <= n ; i++){
     arr.push(i)
 }
 let visited = new Array(n).fill(false);
-let selected = []; // 현재 순열에 포함된 원소들
+let selected = []; // 현재 순열에 포함된 원소들의 인덱스
 
 function dfs(arr, depth){
     if(depth === m){ // 하나의 경우의 수 완성 되면 m-1까지가 실제 원소
