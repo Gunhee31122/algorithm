@@ -132,3 +132,49 @@ depth 가 n-1인 경우는 마지막에 남는 경우의 수가 1개일때 이�
 각 깊이에서 계속 계산해서 비교해야 하면 depth >= k 이런식이고 조건문에 return 삭제
 <- 조합에서 r부분(뒷숫자) 이 변하면 이렇게 해야 함
 
+(상하좌우 모두 이동가능한 문제)
+
+dfs(x,y) 이렇게 현재좌표에서 탐색을 하면 될듯 상하 좌우로
+
+
+디버깅 하려면 함수를 console.log()로 찍기
+
+
+이차원 배열에서 상하좌우 이동
+
+let dx = [-1,1,0,0];
+let dy = [0,0,-1,1];
+
+
+for(let i = 0 ; i < 4; i++){
+        let nx = x + dx[i];
+        let ny = y + dy[i];
+
+let [r, c] = input[0].split(' ').map(Number);
+let arr = [];
+for (let i = 1; i <= r; i++) {
+    arr.push(input[i].trim().split(''))
+}
+
+
+let visited = new Set(); //지나온 칸에 있던 알파벳;
+let maxDepth = 0; // 깊이가 곧 등장한 알파벳 개수
+
+let dx = [-1,1,0,0];
+let dy = [0,0,-1,1];
+
+function dfs(depth,x,y){
+    maxDepth = Math.max(maxDepth,depth); // 각 경로별 depth를 업데이트
+    for(let i = 0 ; i < 4; i++){
+        let nx = x + dx[i];
+        let ny = y + dy[i];
+        if( nx < 0 || nx >= r || ny < 0 || ny >= c)continue;
+        if(visited.has(arr[nx][ny])) continue;
+        visited.add(arr[nx][ny]);
+        dfs(depth+1 , nx, ny);
+        visited.delete(arr[nx][ny]);
+    }
+}
+visited.add(arr[0][0]);
+dfs(1,0,0);
+console.log(maxDepth);
