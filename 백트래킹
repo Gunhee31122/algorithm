@@ -44,3 +44,39 @@ function dfs(row){ // row는 0번부터 행의 개수만큼 들어감(재귀적�
 }
 dfs(0);
 console.log(cnt);
+
+(순열 경우의 수 구하기)
+let answer ='';
+let n = input[0].split(' ').map(Number)[0]
+let m = input[0].split(' ').map(Number)[1]
+let arr = [];  // 1~n까지 숫자가 담긴 배열
+for(let i = 1 ; i <= n ; i++){
+    arr.push(i)
+}
+let visited = new Array(n).fill(false);
+let selected = []; // 현재 순열에 포함된 원소들
+
+function dfs(arr, depth){
+    if(depth === m){ // 하나의 경우의 수 완성 되면 m-1까지가 실제 원소
+        let result = [];
+        for(let i of selected){
+            result.push(arr[i]);
+        }
+        for(let x of result){
+            answer += x + ' ';
+        }
+        answer += '\n';
+        return;
+    }
+    for(let i = 0 ; i < arr.length; i++){
+        if(visited[i]) continue;
+        selected.push(i);
+        visited[i] = true;
+        dfs(arr, depth+1);
+        selected.pop();
+        visited[i] = false;
+    }
+}
+dfs(arr,0);
+
+console.log(answer);
