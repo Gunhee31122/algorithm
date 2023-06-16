@@ -15,7 +15,7 @@ if 종료 조건을 만족(마지막 노드) -> 처리
  Math.abs(a-x) === Math.abs(b-y) <- 기울기 1기준
 
 let queens = []; // 현재 체스판에 놓인 퀸의 위치 정보들 [2,3]이 있으면 이 위치에
-// 퀸이 있다는 것
+// 퀸이 있다는 것  , 이렇게 결과의 누적을 임시 저장할 공간이 필요
 
 function possible(x,y){
     for(let [a,b] of queens){
