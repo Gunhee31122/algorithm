@@ -56,4 +56,11 @@ mySet.size ; 자료의 크기
 mySet.has(3) ; 3을 가지고 있는지
 for (let item of mySet) ; 원소를 하나씩 순회
 
-10.
+10. (변수이름)
+
+개수 = count
+중요 = main
+보조 = sub
+총합 = total
+
+
