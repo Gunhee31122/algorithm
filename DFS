@@ -35,4 +35,47 @@ let visitedCount = visited.filter((value) => value === true).length;
 
 연결 리스트 만들때 서로에게 서로를 추가해줘야함 1 -> 2  , 2 -> 1
 
-bfs / dfs 구분법
+for (let i = 0; i < rows; i++) {
+    arr.push(new Array(columns).fill(0));
+  }
+
+
+
+2차원에서 dfs는 좌표단위로 탐색 (0,0)에서 시작해서 (0,1) , (1,0) 을 방문하는 방식
+
+그래프 범위를 벗어나면 종료해야 함
+
+그래프 변수는 방문처리하는 변수로 초기에 1과 0 으로 갈 수 있는 곳 갈 수 없는 곳이 나눠져 있음 즉 방문했을때 1이라면 갈 수 있지만 아직 가지 않은 것으로 방문 처리로 -1로 바꾸는 것
+
+function dfs(graph, n, m, x, y) { // n , m 은 가로 세로
+    if (x <= -1 || x >= n || y <= -1 || y >= m) return false;
+    if (graph[x][y] === 1) {
+        graph[x][y] = -1; // 방문처리
+        dfs(graph, n, m, x - 1, y);
+        dfs(graph, n, m, x + 1, y);
+        dfs(graph, n, m, x, y - 1);
+        dfs(graph, n, m, x, y + 1);
+        return true; // 인접 노드 탐색이 끝났음을 알림 -> 카운팅
+    }
+    return false; // 탐색할 수 없음
+}
+
+while(testCases--){ // 테스트 케이스 다 할 동안
+    let [m, n, k] = input[line].split(' ').map(Number);
+    let graph = [];
+    for(let i = 0 ; i < n ; i++){ // 이차원 빈 배열 생성
+        graph[i] = new Array(m);
+    }
+    for(let i = 1 ; i <= k ; i++){
+        let [y, x] = input[line + i].split(' ').map(Number);
+        graph[x][y] = 1;
+    }
+    let answer = 0;
+    for (let i = 0 ; i < n ; i++){ // 모든 곳을 다 탐색해야 함
+        for(let j = 0 ; j < m ; j++){
+            if(dfs(graph,n,m,i,j)) answer++;
+        }
+    }
+    line += k + 1;
+    console.log(answer);
+}
