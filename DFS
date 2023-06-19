@@ -79,3 +79,57 @@ while(testCases--){ // 테스트 케이스 다 할 동안
     line += k + 1;
     console.log(answer);
 }
+
+dfs 와 백트래킹의 차이는 백트래킹은 dfs과정이후 방문을 취소하는 단계가 있음 이게 백트래킹(되돌아감)
+
+재귀함수에서는 return후에 제일 아래에 있는 함수가 종료되는 것
+따라서 그 이전 함수는 아직 남아있게 됨
+
+트리에서 깊이 우선탐색은 방향을 정해서 그 방향으로 쭉 들어가야함
+-> 거리 변수를 하나만 만들지 말고 dp처럼 배열로 만들어서 각 노드까지의 거리를 따로 저장
+
+트리에서는 bfs,dfs로 최단 거리 구하기 가능
+매 쿼리 마다 노드 a에서 b까지 거리를 구함
+
+사이클이 존재하면 트리가 아니기 때문에 트리의 개수를 셀때는 사이클이 발생하는 경우를 제외하도로고 설계
+-> 방문한 곳을 다시 방문하면 (이전 노드인 경우 제외) 사이클 존재
+
+(사이클 찾기)
+let line = 0;
+let testCase = 1;
+
+while (true) {
+    
+    let [n, m] = input[line].split(' ').map(Number);
+    if (n === 0 && m === 0) break;
+    let graph = [];
+    for (let i = 1; i <= n; i++) graph[i] = [];
+    for (let i = 1; i <= m; i++) {
+        let [x, y] = input[line + i].split(' ').map(Number);
+        graph[x].push(y);
+        graph[y].push(x);
+    }
+    let visited = new Array(n + 1).fill(false);
+    let cnt = 0;
+    for (let i = 1; i <= n; i++) {
+        if (!visited[i]) {
+            if (!isCycle(i, 0, visited, graph)) cnt++;
+        }
+    }
+    function isCycle(x, prev, visited, graph) { // 이거 자체가 dfs 함수
+        visited[x] = true;
+        for (let y of graph[x]) {
+            if (visited[y] && y !== prev) {
+                return true;
+            } else if (!visited[y] && isCycle(y, x,visited,graph)) { //방문하지 않았으면 다시 dfs
+                return true;
+            }
+        }
+        return false;
+    }
+    if (cnt === 0) console.log(`Case ${testCase}: No trees.`);
+    else if (cnt === 1) console.log(`Case ${testCase}: There is one tree.`);
+    else console.log(`Case ${testCase}: A forest of ${cnt} trees.`);
+    line += m + 1;
+    testCase++;
+}
