@@ -144,3 +144,45 @@ while (true) {
     line += m + 1;
     testCase++;
 }
+
+서로 꼬리에 꼬리를 무는형태가 사이클 (이 개념 자체도 자주 나옴)
+-> 서로 엮여 있거나 자기자신한테 향할때 ****
+
+사이클 : 방문한 적이 있지만 완료되지 않으면 사이클이 발생한 것
+
+let testCases = Number(input[0]);
+let line = 1;
+while(testCases--){
+    let n = Number(input[line]);
+    let graph = [0,...input[line+1].split(' ').map(Number)];
+    let visited = new Array(n+1).fill(false);
+    let finished = new Array(n+1).fill(false);
+    let result = [];
+
+    for(let x = 1 ; x <= n ; x++){
+        if(!visited[x]) dfs(x, graph, visited,finished,result);
+    }
+    line += 2;
+    console.log(n - result.length);
+}
+
+function dfs(x, graph, visited, finished, result){
+    visited[x]= true;
+    let y = graph[x];
+    if ( !visited[y]){
+        dfs(y , graph, visited, finished, result);
+    } else if (!finished[y]){
+        while( y !== x){ // 사이클안에 있는 노드들을 모두 결과에 저장
+            result.push(y);
+            y = graph[y];
+        }
+        result.push(x);
+    }
+    finished[x] = true; // 재귀적으로 호출되면서 사이클에 있던 모든 노드가 여기 들어갈것
+}
+
+
+하나의 노드에서 그 밑의 깊이로 내려갈때는 한 번 dfs 하는 거고
+여러 노드에서 각자 밑으로 내려가야 하면 여러번 dfs 하게 됨
+
+
