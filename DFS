@@ -36,8 +36,6 @@ visited = Array(9).fill(false);
 dfs(graph,1,visited);
 
 
-
-
 let graph = new Array(computerCount + 1).fill(null).map(() => []);
 이렇게 이중 배열을 초기화 해야함  fill 안에 []로 하면 다 같은 빈 배열을 참조하여 다같이 변함
 
@@ -49,7 +47,6 @@ let visitedCount = visited.filter((value) => value === true).length;
 for (let i = 0; i < rows; i++) {
     arr.push(new Array(columns).fill(0));
   }
-
 
 
 2차원에서 dfs는 좌표단위로 탐색 (0,0)에서 시작해서 (0,1) , (1,0) 을 방문하는 방식
