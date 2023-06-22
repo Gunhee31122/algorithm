@@ -20,6 +20,7 @@ class Queue {
   getLength(){
     return this.tailIndex - this.headIndex;
   }
+}
   
 딕셔너리는 키와 밸류 형태로 이루어진 자료형으로  인덱스를 써서 배열과 비슷하게 사용가능
 
