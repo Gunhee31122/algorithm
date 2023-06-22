@@ -1,6 +1,6 @@
 (dfs)
 인접 리스트를 이용해 상태를 표현 , 스택이나 재귀함수를 이용 (트리, 그래프 사용)
-- 인접한 ~으로 이동이 힌트, 경우의 수 모두찾기
+- 인접한 ~으로 이동이 힌트, 경우의 수 모두찾기 , 노드 사이의 거리
 큐를 못 쓰거나 트리의 순회, 점화식 구현, 트리 최단 거리 탐색 등에서는 DFS 사용
 
 각 노드와 인접한 노드들을 배열에 담아 다시 큰 배열에 넣음
@@ -67,6 +67,30 @@ function dfs(graph, n, m, x, y) { // n , m 은 가로 세로
         return true; // 인접 노드 탐색이 끝났음을 알림 -> 카운팅
     }
     return false; // 탐색할 수 없음
+}
+
+(노드 별 거리 구하기)
+let [n,m] =  input[0].split(' ').map(Number);
+let graph = [];
+for(let i = 1 ; i <= n ; i++) graph[i] = [] ;
+for(let i = 1 ; i < n ; i++) {
+    let [x,y,cost] = input[i].split(' ').map(Number);
+    graph[x].push([y,cost]);
+    graph[y].push([x,cost]);
+}
+
+function dfs(x, dist){ // 각 노드까지의 거리를 배열로 만들고 누적합을 구함
+    if(visited[x])return;
+    visited[x] = true;
+    distance[x] = dist;
+    for(let [y,cost] of graph[x]) dfs(y, dist+cost);
+}
+for(let i = 0 ; i < m ; i++){
+    let [x,y] = input[n+i].split(' ').map(Number);
+    let visited = new Array(n+1).fill(false);
+    let distance = new Array(n+1).fill(-1);
+    dfs(x,0);
+    console.log(distance[y]);
 }
 
 while(testCases--){ // 테스트 케이스 다 할 동안
