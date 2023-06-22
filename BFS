@@ -1,1 +1,51 @@
+BFS는 큐를 사용 , 모든 간선의 길이가 동일할때 최단 거리를 탐색하기 위해 사용
+DFS가 메모리/시간 초과를 받는 경우 , 익숙하면 BFS가 더 유리함
 
+
+1. 시작 노드를 큐에 넣고 방문 처리
+2. 큐에서 원소를 꺼내어 방문하지 않은 인접 노드가 있는지 확인 있으면 인접 노드를 큐에 삽입하고 방문처리
+3. 2번을 반복
+
+
+(큐 구현)
+class Queue {
+  constructor() {
+    this.items = {};
+    this.headIndex = 0;
+    this.tailIndex = 0;
+  }
+  enqueue(item){
+    this.items[this.tailIndex] = item; // tail자리에는 값이 비어있어야함
+    this.tailIndex++
+  }
+  dequeue(){
+    const item = this.items[headIndex];
+    delete this.items[this.headIndex];
+    this.headIndex++;
+    return item ; 
+  }
+  peek() { // 다음 으로 꺼내려는 원소 스택의 top
+    return this.items[this.headIndex];
+  }
+  getLength(){
+    return this.tailIndex - this.headIndex;
+  }
+}
+
+
+(기본 bfs)
+function bfs(graph, start, visited){
+    queue = new Queue();
+    queue.enqueue(start); // 큐에 넣고 방문처리
+    visited[start] = true;
+    while(queue.getLength() !== 0){
+        v = queue.dequeue(); // 방문한 순서대로 큐에서 반환
+        console.log(v);
+        for(i of graph[v]){ // 반환한 노드에 연결되어 있는 노드를 모두 큐에 넣음
+            if(!visited[i]){
+                queue.enqueue(i);
+                visited[i] = true;
+            }
+        }
+    }
+}
