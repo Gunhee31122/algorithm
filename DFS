@@ -255,7 +255,7 @@ function dfs(count){
         result = Math.max(result,getScore());
         return;
     }
-    for(let i = 0 ; i< n ; i++){
+    for(let i = 0 ; i< n ; i++){ // push 하는게 아니라 순서가 상관없으므로 조합임
         for(let j = 0 ; j < m ; j++){
             if(data[i][j] === 0){
                 data[i][j] = 1;
