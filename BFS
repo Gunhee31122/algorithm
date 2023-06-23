@@ -36,7 +36,7 @@ class Queue {
 (기본 bfs)
 function bfs(graph, start, visited){
     queue = new Queue();
-    queue.enqueue(start); // 큐에 넣고 방문처리
+    queue.enqueue(start); // 큐에 넣고 방문처리 -> 방문처리를 그래프의 값을 변경하는 방법도 가능(-1이나 0이 미방문)
     visited[start] = true;
     while(queue.getLength() !== 0){
         v = queue.dequeue(); // 방문한 순서대로 큐에서 반환
