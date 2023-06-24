@@ -145,5 +145,39 @@ while(queue.getLength() !== 0){
 }
 if(!found) console.log(-1);
 
+(최단 거리 응용)
+let n = Number(input[0]);
+let m = Number(input[1]);
 
+let graph = [];
+for(let i = 1 ; i <= n ; i++){
+    graph[i] = [];
+}
+for(let i = 2 ; i <= m + 1 ; i++){
+    let [x,y] = input[i].split(' ').map(Number);
+    graph[x].push(y);
+    graph[y].push(x);
+}
+
+let distance = new Array(n+1).fill(-1);
+distance[1] = 0 ;
+
+let queue = new Queue();
+queue.enqueue(1);
+while(queue.getLength() !== 0 ){
+    let now = queue.dequeue();
+    for(let nextNode of graph[now]){
+        if(distance[nextNode] === -1){
+            distance[nextNode] = distance[now] +1;
+            queue.enqueue(nextNode);
+        }
+    }
+}
+let result = 0;
+for(let i = 1 ; i <=n ; i++){
+    if(distance[i] !== -1 && distance[i] <= 2){
+        result++;
+    }
+}
+console.log(result-1);
 
