@@ -182,6 +182,8 @@ for(let i = 1 ; i <=n ; i++){
 console.log(result-1);
 
 (치즈문제)
+치즈가 없는 바깥 라인을 bfs 하기(공기를 탐색)
+
 let [n, m] = input[0].split(' ').map(Number);
 let graph = [];
 for (let i = 1; i <= n; i++) {
@@ -272,3 +274,11 @@ while(queue.getLength() !==0){
     }
 }
 if(!found) console.log(-1);
+
+A -> B로 바꾸기 (최소 연산횟수 구하기 = 최단 거리구하기)
+
+변하는 수로 이동한다고 생각하면 그래프 구조로 볼 수 있음
+
+
+배열은 메모리가 많아서 집합 자료형을 쓰면 좀 더 메모리를 절약해서 방문 처리 가능
+방문한 노드 값 자체를 넣는것(인덱스가 아니라)
