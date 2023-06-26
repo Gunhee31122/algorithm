@@ -11,3 +11,11 @@ function get_primes(num) {
   if(prime[i]) { // i가 소수이면
     for( let j = i*2 ; j ≤num ; j += i) { // i의 배수들을 제거
       prime[j] = false;
+
+유클리드 호제법(최대공약수,최소공배수) :
+
+function solution(num1, num2) {
+    const gcd = (a, b) => a % b === 0 ? b : gcd(b, a % b);
+    const lcm = (a, b) => a * b / gcd(a, b);
+    return [gcd(num1, num2), lcm(num1, num2)];
+}
