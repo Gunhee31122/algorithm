@@ -1,6 +1,7 @@
 메모리를 더 사용하여 시간 복잡도를 개선할때 많이 사용 됨
 
 부분 문제의 반복이 발생 할 때 이 점화식을 찾아 메모리에 저장하여 해결
+점화식, 수열의 규칙성 찾기 문제에 많이 사용
 
 ex) 피보나치 수열
 
@@ -8,4 +9,28 @@ ex) 피보나치 수열
 하향식 : 재귀 함수로 큰 항을 구하기 위해 작은 항을 호출(큰 문제 -> 작은 문제로)
 
 
+(각 단계에 여러 경우가 있으면 이차원으로 해석 하기 )
+ dp[i][j]
 
+let n = Number(input[0]);
+let dp = [];
+
+for (let i = 1; i <= n; i++) {
+    let data = input[i].split(' ').map(Number);
+    dp.push(data);
+}
+
+for (let i = 1; i < n; i++){
+    for(let j = 0 ; j <= i ; j++){
+        let upLeft = 0;
+        if(j !== 0){
+            upLeft = dp[i-1][j-1];
+        }
+        let up = 0;
+        if(j !== i){
+            up = dp[i-1][j];
+        }
+        dp[i][j] = dp[i][j] +Math.max(up,upLeft);
+    }
+}
+console.log(Math.max(...dp[n-1]))//각 층의 값 중 최대값
