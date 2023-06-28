@@ -34,3 +34,34 @@ for (let i = 1; i < n; i++){
     }
 }
 console.log(Math.max(...dp[n-1]))//각 층의 값 중 최대값
+
+
+'use strict';
+
+let fs = require('fs');
+let input = fs.readFileSync('input.txt').toString().trim().split('\n');
+// /dev/stdin
+
+let [n, m, h] = input[0].split(' ').map(Number);
+let a = [];
+let d = new Array(h + 1).fill(0);
+for (let i = 1; i <= n; i++) {
+    a.push(input[i].split(' ').map(Number));
+}
+d[0] = 1;
+
+for (let i = 0; i < n; i++) { // 각각의 학생이
+    let data = [];
+    for (let j = 0; j <= h; j++) { // 각각의 높이를 만드는 경우 처리
+        for (let k = 0; k < a.length; k++) {
+            if (d[j] !== 0 && j + a[i][k] <= h) {
+                data.push([j + a[i][k], d[j]]);
+            }
+        }
+    }
+    for (let [height, value] of data) {
+        d[height] = (d[height] + value) % 10007;
+    }
+}
+    console.log(d[h])
+
