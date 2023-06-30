@@ -71,8 +71,13 @@ function dfs(depth){
 dfs(0);
 console.log(answer)
 
-조합은 위 깊이에서 나온 값보다 큰 값만 탐색하면 됨 (이러면 오름차순으로 결과 배열에 들어갈 것 내림차순으로 하고 싶으면 그냥 반대로)
-if(temp[temp.length-1] > i ) continue;
+(조합구할때)
+start 파라미터를 추가하고 
+for (let i = start; i < chicken.length; i++) {
+        selected.push(chicken[i]);
+        dfs(i + 1, depth + 1);
+        selected.pop();
+    } 
 
 
 function factorial(n){
