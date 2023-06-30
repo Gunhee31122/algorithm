@@ -78,7 +78,7 @@ for (let i = start; i < chicken.length; i++) {
         dfs(i + 1, depth + 1);
         selected.pop();
     } 
-
+dfs(0,1);
 
 function factorial(n){
     if (n === 0 ) return 1;
