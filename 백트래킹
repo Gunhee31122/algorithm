@@ -45,37 +45,31 @@ dfs(0);
 console.log(cnt);
 
 (순열 경우의 수 구하기) - nPm
-let answer ='';
-let n = input[0].split(' ').map(Number)[0]
-let m = input[0].split(' ').map(Number)[1] 
-let arr = [];  // 1~n까지 숫자가 담긴 배열
-for(let i = 1 ; i <= n ; i++){
-    arr.push(i)
-}
-let visited = new Array(n).fill(false); / 중복을 방지할 때 필요
-let selected = []; // 현재 순열에 포함된 원소들의 인덱스
+let [n,m] = input[0].split(' ').map(Number);
+let depth = 0;
+let visited = new Array(n+1).fill(false); //중복을 방지할 때 필요
+let result = [];
+let answer = '';
 
-function dfs(arr, depth){
-    if(depth === m){ // 하나의 경우의 수 완성 되면 m-1까지가 실제 원소
-        let result = [];
-        for(let x of selected){
+function dfs(depth){
+    if (depth === m){
+        for(let x of result){
             answer += x + ' ';
         }
-        answer += '\n';
-        return;
+        answer += '\n'
+        return 
     }
-    for(let i = 0 ; i < arr.length; i++){
-        if(visited[i]) continue;  // 중복 방지코
-        selected.push(i);
+    for(let i = 1 ; i <= n ; i++){
+        if(visited[i]) continue;
         visited[i] = true;
-        dfs(arr, depth+1);
-        selected.pop();
-        visited[i] = false;
+        result.push(i);
+        dfs(depth+1);
+        result.pop()
+        visited[i]= false;
     }
 }
-dfs(arr,0);
-
-console.log(answer);
+dfs(0);
+console.log(answer)
 
 조합은 위 깊이에서 나온 값보다 큰 값만 탐색하면 됨 (이러면 오름차순으로 결과 배열에 들어갈 것 내림차순으로 하고 싶으면 그냥 반대로)
 if(temp[temp.length-1] > i ) continue;
