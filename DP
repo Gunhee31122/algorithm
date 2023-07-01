@@ -65,3 +65,24 @@ for (let i = 0; i < n; i++) { // 각각의 학생이
 }
     console.log(d[h])
 
+LIS (가장 긴 증가하는 부분 수열)
+
+d[i] = arr[i]를 마지막 원소로 가지는 부분 수열의 최대길이
+이때 점화식은
+0 <= j < i 에 대하여( 이중 반복문)
+d[i] = max(d[i],d[j]+1) if (arr[j] < arr[i]) <- 이건 증가하는 조건을 만족했다는 의미기 때문에 이때 최대값을 갱신 앞에 길이에 누적으로 더해가는 개념이라 dp임
+
+let n = Number(input[0]);
+let solider = input[1].split(' ').map(Number);
+let dp = new Array(n).fill(1);
+
+for(let i = 0 ; i < n ; i++){
+    for(let j = 0 ; j <= i ; j++){
+        if(solider[j] >solider[i]){
+            dp[i] = Math.max(dp[i],dp[j]+1)
+        }
+    }
+}
+console.log(n- Math.max(...dp));
+
+
