@@ -9,7 +9,7 @@ class Queue {
     this.tailIndex++
   }
   dequeue(){
-    const item = this.items[headIndex];
+    const item = this.items[this.headIndex];
     delete this.items[this.headIndex];
     this.headIndex++;
     return item ; 
