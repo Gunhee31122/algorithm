@@ -1,25 +1,34 @@
 class Queue {
-  constructor() {
-    this.items = {};
-    this.headIndex = 0;
-    this.tailIndex = 0;
-  }
-  enqueue(item){
-    this.items[this.tailIndex] = item; // tail자리에는 값이 비어있어야함
-    this.tailIndex++
-  }
-  dequeue(){
-    const item = this.items[this.headIndex];
-    delete this.items[this.headIndex];
-    this.headIndex++;
-    return item ; 
-  }
-  peek() { // 다음 으로 꺼내려는 원소 스택의 top
-    return this.items[this.headIndex];
-  }
-  getLength(){
-    return this.tailIndex - this.headIndex;
-  }
+    constructor() {
+        this.items = [];
+        this.headIndex = 0;
+        this.tailIndex = 0;
+    }
+    enqueue(item) {
+        this.items[this.tailIndex] = item; // tail자리에는 값이 비어있어야함
+        this.tailIndex++
+    }
+    dequeue() {
+        const item = this.items[this.headIndex];
+        delete this.items[this.headIndex];
+        this.headIndex++;
+        return item;
+    }
+    peek() { // 다음 으로 꺼내려는 원소 스택의 top
+        return this.items[this.headIndex];
+    }
+    getLength() {
+        return this.tailIndex - this.headIndex;
+    }
+    getMax() {
+        let max = -Infinity;
+        for (let i = this.headIndex; i < this.tailIndex; i++) {
+            if (this.items[i] > max) {
+                max = this.items[i];
+            }
+        }
+        return max;
+    }
 }
   
 딕셔너리는 키와 밸류 형태로 이루어진 자료형으로  인덱스를 써서 배열과 비슷하게 사용가능
