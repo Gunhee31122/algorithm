@@ -35,3 +35,70 @@ class Queue {
 
 delete 객체[인덱스] 하면 특정 인덱스를 삭제할 수 있는데 이때 삭제 된부분이 사라지는게 아니라 undefined 로 남기 때문에 splice를 이용하는 것이 좀 더 깔끔할 수 있음
 단 큐를 구현할때는 어차피 맨 앞 인덱스를 옮기기 때문에 큰 문제는 아님
+
+
+(덱)
+deque (덱)은 선입선출 후입선출이 모두 가능한 스택+큐의 구조
+
+class Deque {
+  constructor() {
+    this.items = [];
+  }
+
+  // 덱의 앞쪽에 요소를 추가합니다.
+  addFront(item) {
+    this.items.unshift(item);
+  }
+
+  // 덱의 뒤쪽에 요소를 추가합니다.
+  addRear(item) {
+    this.items.push(item);
+  }
+
+  // 덱의 앞쪽의 요소를 삭제하고 반환합니다.
+  removeFront() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.shift();
+  }
+
+  // 덱의 뒤쪽의 요소를 삭제하고 반환합니다.
+  removeRear() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.pop();
+  }
+
+  // 덱의 앞쪽의 요소를 반환합니다.
+  peekFront() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[0];
+  }
+
+  // 덱의 뒤쪽의 요소를 반환합니다.
+  peekRear() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[this.items.length - 1];
+  }
+
+  // 덱이 비어있는지 확인합니다.
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  // 덱의 크기를 반환합니다.
+  size() {
+    return this.items.length;
+  }
+
+  // 덱의 내용을 문자열로 반환합니다.
+  toString() {
+    return this.items.toString();
+  }
+}
