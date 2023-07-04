@@ -40,65 +40,68 @@ delete 객체[인덱스] 하면 특정 인덱스를 삭제할 수 있는데 이�
 (덱)
 deque (덱)은 선입선출 후입선출이 모두 가능한 스택+큐의 구조
 
+
 class Deque {
-  constructor() {
-    this.items = [];
-  }
-
-  // 덱의 앞쪽에 요소를 추가합니다.
-  addFront(item) {
-    this.items.unshift(item);
-  }
-
-  // 덱의 뒤쪽에 요소를 추가합니다.
-  addRear(item) {
-    this.items.push(item);
-  }
-
-  // 덱의 앞쪽의 요소를 삭제하고 반환합니다.
-  removeFront() {
-    if (this.isEmpty()) {
-      return null;
+    constructor() {
+        this.items = [];
     }
-    return this.items.shift();
-  }
-
-  // 덱의 뒤쪽의 요소를 삭제하고 반환합니다.
-  removeRear() {
-    if (this.isEmpty()) {
-      return null;
+    addFront(item) {
+        this.items.unshift(item);
     }
-    return this.items.pop();
-  }
-
-  // 덱의 앞쪽의 요소를 반환합니다.
-  peekFront() {
-    if (this.isEmpty()) {
-      return null;
+    addRear(item) {
+        this.items.push(item);
     }
-    return this.items[0];
-  }
-
-  // 덱의 뒤쪽의 요소를 반환합니다.
-  peekRear() {
-    if (this.isEmpty()) {
-      return null;
+    removeFront() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.items.shift();
     }
-    return this.items[this.items.length - 1];
-  }
-
-  // 덱이 비어있는지 확인합니다.
-  isEmpty() {
-    return this.items.length === 0;
-  }
-
-  // 덱의 크기를 반환합니다.
-  size() {
-    return this.items.length;
-  }
-
-  // 덱의 내용을 문자열로 반환합니다.
-  toString() {
-    return this.items.toString();
-  }
+    removeRear() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.items.pop();
+    }
+    peekFront() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.items[0];
+    }
+    peekRear() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.items[this.items.length - 1];
+    }
+    isEmpty() {
+        return this.items.length === 0;
+    }
+    size() {
+        return this.items.length;
+    }
+    toString() {
+        return this.items.toString();
+    }
+    getMax() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return Math.max(...this.items);
+    }
+    getMin() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return Math.min(...this.items);
+    }
+    getIndex(value) {
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i] === value) {
+                return i;
+            }
+        }
+        return -1; // 값이 없는 경우 -1 반환
+    }
 }
