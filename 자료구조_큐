@@ -105,3 +105,14 @@ class Deque {
         return -1; // 값이 없는 경우 -1 반환
     }
 }
+
+
+let prices = Array.from({ length: 40 }, (_, index) => index); 0부터 40까지 숫자가 담긴 배열
+
+
+인덱스와 값을 각각 큐에 저장하면 동시에 다룰 수 있음
+
+
+큐에서 배열 자체를 쓰고 싶으면 queue.items를 써야함
+
+큐에서 삭제를 할때 undefined처리가 되기 때문에 조심해야 함
