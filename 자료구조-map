@@ -12,3 +12,31 @@ entries()로 키-값 쌍 반환
 * 일반 객체와 달리 키 유형에 제한이 없음 , 추가한 순서를 보장해줌 , 검색이 빠름, 메모리 관리가 좋음 따라서 많은 데이터를 처리하거나 효율적인 검색이 필요한 상황에서 유용
 
 배열 중복 제거 :   [...new Set(배열)]
+
+
+map으로 값과 인덱스를 한 반복문으로 다룰 수 있음
+
+'use strict';
+
+let fs = require('fs');
+let input = fs.readFileSync('input.txt').toString().trim().split('\n');
+// /dev/stdin
+
+
+let n = Number(input[0]);
+let numbers = input[1].split(' ').map(Number);
+let answer = '';
+
+let arr = [...new Set(numbers)].sort((a,b)=> a-b)
+
+let myMap = new Map();
+
+for(let i = 0 ; i < arr.length ; i++){
+    myMap.set(arr[i],i);
+}
+
+for(let x of numbers){
+    answer += myMap.get(x) + ' ';
+}
+
+console.log(answer)
