@@ -30,6 +30,6 @@ countries.sort( (a, b) => a.localeCompare(b) )
 
 13. padStart(n,0) - n길이의 문자열 중 빈 곳은 0으로 채움
 
-14. 문자열.indexOf(글자) 로 문자열 내에서 특정 글자의 인덱스 찾기가능
+14. 
 
 15.
