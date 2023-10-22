@@ -42,6 +42,29 @@ let arr = new Array(5).fill(0);
 Number()
 String()
 
+8. 알파벳의 아스키 코드는
+대문자는 65
+소문자는 97
+
+문자 -> 아스키 코드 변환
+문자열.charCodeAt(인덱스)
+
+반대는
+String.fromCharCode(아스키코드)  <- 아스키 코드 ,로 여러개 넣을수 있음 -> 붙어서 나옴
+
+ex) String.fromCharCode(65,66,67);  하면 ABC출력
+
+
+9.
+
+
+10. (변수이름)
+
+개수 = count
+중요 = main
+보조 = sub
+총합 = total
+
 8.reduce() 는 배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 사용 //
 reduce((accumulator, currentValue) => (반환값))
 이 반환값을 accumulator 로 들어가고 최종적으로 reduce 밖으로 리턴함
@@ -56,11 +79,6 @@ mySet.size ; 자료의 크기
 mySet.has(3) ; 3을 가지고 있는지
 for (let item of mySet) ; 원소를 하나씩 순회
 
-10. (변수이름)
 
-개수 = count
-중요 = main
-보조 = sub
-총합 = total
 
 
