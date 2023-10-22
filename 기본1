@@ -42,11 +42,11 @@ let arr = new Array(5).fill(0);
 Number()
 String()
 
-8.reduce() 는 배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 사용
+8.reduce() 는 배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 사용 //
 reduce((accumulator, currentValue) => (반환값))
 이 반환값을 accumulator 로 들어가고 최종적으로 reduce 밖으로 리턴함
 
-9.(특정 원소 등장 여부) -> 집합 자료형
+9.(특정 원소 등장 여부) -> 집합 자료형 //
 
 let mySet = new Set();
 
