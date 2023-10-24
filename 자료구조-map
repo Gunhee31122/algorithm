@@ -18,7 +18,17 @@ let temp = myMap.get(x)
 myMap.set(x, temp + 1)
 
 
-map으로 값과 인덱스를 한 반복문으로 다룰 수 있음
+map을 배열에서 of 로 찍으면 배열형태로 [키,값] 이렇게 나
+
+new Map(arr) 하면 배열을 바로 맵으로 바꾸기 가
+
+** map으로 값과 인덱스를 한 반복문으로 다룰 수 있음
+
+(최대 최소 구하는법)
+let max = [...myMap.entries()].reduce((a,b) => a[1] > b[1] ? a : b)[1];
+let t = [...myMap.entries()].reduce((a,b) => a[1] > b[1] ? a : b)[0]
+
+
 
 'use strict';
 
