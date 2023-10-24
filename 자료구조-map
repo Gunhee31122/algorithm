@@ -13,6 +13,10 @@ entries()로 키-값 쌍 반환
 
 배열 중복 제거 :   [...new Set(배열)]
 
+수정할때 좀 번거로움
+let temp = myMap.get(x)
+myMap.set(x, temp + 1)
+
 
 map으로 값과 인덱스를 한 반복문으로 다룰 수 있음
 
