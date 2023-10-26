@@ -40,7 +40,7 @@ let someUsers = users.filter(item => item.id < 3);
 12. some 메서드
 map과 비슷한데 요소를 순환하면서 함수부분에 해당하는 조건을 만족하는 것이 하나라도 있으면 true반환
 
-13. eveyr메서드
+13. every메서드
 위와 반대로 모두 참일 때만 true반환
 
 14. for ( const item of arr) {
@@ -58,5 +58,7 @@ return 부분에 처리할 동작 넣음
 한줄이면 function 자리에 () =>  이렇게 처리 가능
 
 * 응용 : 클래스들로 이루어진 배열에서 클래스내 특정 프로퍼티만 뽑을수 있음
+
+17. reduce 메서드
 
 
