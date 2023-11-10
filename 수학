@@ -1,4 +1,4 @@
-몫 구하기 : parseInt(13/5) , Math.floor(13/5)
+몫 구하기 : parseInt(13/5) , Math.floor(13/5) , ~~(13/5)
 나머지 : %
 숫자판별 : .isNaN()
 
