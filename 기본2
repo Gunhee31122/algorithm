@@ -32,3 +32,5 @@
 13. while(fibo[fibo.length - 1] < 1e9){
     fibo.push(fibo[fibo.length - 2] + fibo[fibo.length - 1]);
 } 인덱스가 아닌 값을 조건으로 반복문을 돌릴 때
+
+14. 
