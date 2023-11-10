@@ -35,7 +35,7 @@ upperBound는 반대
 function lowerBound(arr, target, start, end){
 	while(start < end) {
 	  let mid = parseInt((start+end)/2);
-	  if(arr[mid] >= target) end = mid; //  타겟을 찾더라도 왼쪽으로 이동
+	  if(arr[mid] >= target) end = mid; //  타겟을 찾더라도 왼쪽으로 이동  -  arr에 원소가 1개인 경우에 에러가 없으려면 end = mid - 1 하면 안 됨
 	  else start = mid + 1;
   }
   return end ; // start와 end가 같아지면 반환
