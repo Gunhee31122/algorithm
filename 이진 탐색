@@ -50,6 +50,12 @@ function countByRange(arr, leftValue, rightValue){
     return rightIndex - leftIndex ;
 } <- 이걸로 범위까지 구함
 
+정렬된 배열에서 특정 조건에 맞는 원소의 개수 구하기 -> 하한선 상한선을 설정
+이 선들을 찾을때는 target과 mid 값이 같아지더라도 인덱스를 이동할 수 있어야 함
+상한선 - 하한선 하면 개수가 나옴
+
+
+
 (파라메트릭 서치)
 
 최적화문제를  예 혹은 아니오 문제로 바꾸어 해결하는 방법
