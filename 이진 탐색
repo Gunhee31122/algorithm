@@ -42,6 +42,7 @@ function lowerBound(arr, target, start, end){
 }
 
 upperBound는 if문 등호만 제거 -> 타겟을 찾으면 오른쪽으로 이동함
+- 두 바운드의 차이는 등호가 end쪽에 붙냐  start쪽에 붙냐 차이
 
 function countByRange(arr, leftValue, rightValue){
     let rightIndex = upperBound(arr, rightValue,0,arr.length);
