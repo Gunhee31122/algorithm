@@ -32,4 +32,6 @@ countries.sort( (a, b) => a.localeCompare(b) )
 
 14. 문자열도 slice가능
 
-15.
+15.  * 개행문자(줄바꿈 , 띄어쓰기 등) 모두 제거
+str = str.replace(/\n|\r|\s*/g, '');
+n이 줄바꿈 r이 엔터 s가  공백
