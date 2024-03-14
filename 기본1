@@ -32,10 +32,7 @@ rl.on('line', function(line) {
 4. (이스케이프 시퀀스)
 예약어나 특수문자는 \와 함께 사용
 
-5.(소수점 아래 특정 자리에서 반올림)
-let x = 123.456
-console.log(x.toFixed(2));
-2째 자리까지 출력
+5.
 
 6.(배열 초기화)
 let arr = new Array(5).fill(0);
