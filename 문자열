@@ -14,7 +14,7 @@ charCodeAt()
 문자의 아스키 번호를 반환
 String.fromCharCode(아스키 번호)
 아스키 번호의 문자를 반환
-
+# 아스키코드 대신 let al = 'abcdefghijklmnopqrstuvwxyz' 이걸 사용할수도 있음
 
 6. js 문자열은 immutable 해서 문자열 자체를 바꿀 수 없음 string[2] = "anikc" 이렇게 안됨
 / 인덱싱 자체는 가능
