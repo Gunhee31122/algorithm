@@ -32,7 +32,7 @@ rl.on('line', function(line) {
 4. (이스케이프 시퀀스)
 예약어나 특수문자는 \와 함께 사용
 
-5.
+5. input 데이터를 그대로 가져오면 각 줄이 끝날때 \r이 붙어서 trim()으로 지워야함
 
 6.(배열 초기화)
 let arr = new Array(5).fill(0);
